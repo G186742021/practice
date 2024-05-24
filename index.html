@@ -1,20 +1,28 @@
-<!doctype html>
-<!--
- @license
- Copyright 2023 Google LLC. All Rights Reserved.
- SPDX-License-Identifier: Apache-2.0
--->
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Info Windows</title>
-  </head>
-  <body>
-    <gmp-map center="-25.363, 131.044" zoom="4" map-id="DEMO_MAP_ID">
-      <gmp-advanced-marker position="-25.363, 131.044" title="Uluru" gmp-clickable></gmp-advanced-marker>
-    </gmp-map>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&libraries=marker&v=beta&solution_channel=GMP_CCS_infowindows_v2"
-      defer
-    ></script>
-  </body>
+<head>
+<title>Google Maps JavaScript API</title>
+<meta charset="utf-8">
+<style>
+#map1 {
+  widht: 400px;
+  height: 300px;
+  border: 1px solid #999;
+}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+var map;
+function initMap() {
+  var latlng = { lat: 35.6585696, lng: 139.7454840 };
+  map = new google.maps.Map(document.getElementById('map1'), {
+    center: latlng,
+    zoom: 18
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
 </html>
