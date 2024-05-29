@@ -15,7 +15,7 @@ let map;
 
 async function initMap() {
   // The location of Uluru
-  const Takushoku = { lat: 35.62718, lng: 139.28055 };
+  const Takushoku = { lat: 35.627244827222064, lng: 139.2805975706812 };
   // Request needed libraries.
   //@ts-ignore
   const { Map } = await google.maps.importLibrary("maps");
@@ -23,7 +23,7 @@ async function initMap() {
 
   // The map, centered at Uluru
   map = new Map(document.getElementById("map"), {
-    zoom: 10,
+    zoom: 18,
     center: Takushoku,
     mapId: "DEMO_MAP_ID",
   });
