@@ -1,7 +1,4 @@
 @charset "utf-8";
 #map {
- height: 0;
-overflow: hidden;
-padding-bottom: 56.25%;
-position: relative;
+padding-top: calc(400 / 600 * 100%);
 }
