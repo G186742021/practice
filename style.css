@@ -1,6 +1,15 @@
 @charset "utf-8";
 
-#map {
-  width: 1800px;
-   height: 1200px;
+
+/* スマホ向け（画面幅が600px以下） */
+#map (max-width: 600px) {
+}
+
+/* タブレット向け（画面幅が601pxから900px） */
+#map (min-width: 601px) and (max-width: 900px) {
+    
+}
+
+/* PC向け（画面幅が901px以上） */
+#map (min-width: 901px) {
 }
