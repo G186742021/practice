@@ -2,3 +2,8 @@
 #map {
 padding-top: calc(1 / 1 * 100%);
 }
+
+#map {
+    width: 100%;
+    height: 100%;
+}
