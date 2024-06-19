@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <input
+        id="pac-input"
+        class="controls"
+        type="text"
+        placeholder="Search Box"
+        />
         <div id="map"></div>
     <script>
   // Initialize and add the map
@@ -22,8 +28,28 @@ function initMap() {
     const map = new google.maps.Map(document.getElementById('map'), {
         center: center,
         zoom: 17
-        mapTypeId: "terrain",
+        mapTypeId: "roadmap",
+        styles: [{
+        //featureType: 'road',
+        stylers: [{
+        hue: '#ff0'
+    }, {
+        saturation: -50
+    }, {
+        lightness: 0
+    }, {
+        gamma: 0.5
+    }]
+    }]
     });
+
+const input = document.getElementById("pac-input");
+const searchBox = new google.maps.places.SearchBoxinput);
+map. controls[google.maps.ControlPosition.TOP_LEFT] -push(input);
+map. addListener ("bounds_changed", () =>• { searchBox. setBounds (map-getBounds));
+}) ;
+
+   
 
     // マーカーの座標を設定
     const markerData = [
