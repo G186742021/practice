@@ -14,6 +14,7 @@
 // Initialize and add the map
 let map;
 let markers = [];
+let photoGallery = document.getElementById('photo-gallery');
 
 function initMap() {
     // mapの中心を作成
@@ -132,6 +133,14 @@ function initMap() {
         });
 
          markers.push(marker);
+             const photoItem = document.createElement('div');
+                photoItem.classList.add('photo-item');
+                photoItem.innerHTML = `<img src="${markerData[i].imageUrl}" alt="Photo ${i + 1}">`;
+                photoItem.addEventListener('click', function() {
+                    window.location.href = markerData[i].page;
+                });
+                photoGallery.appendChild(photoItem);
+            }
     }
         // ストリートビューが表示のON/OFFでマーカーの表示を切り替える
         google.maps.event.addListener(map.getStreetView(), 'visible_changed', function() {
