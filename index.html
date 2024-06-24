@@ -108,13 +108,20 @@ function initMap() {
     ];
 
     // マーカーを設置
-    for (let i = 0; i < markerData.length; i++) {
-        const marker = new google.maps.Marker({
-            position: markerData[i].position,
-            map: map,
-            title: 'Point ' + (i + 1)
-           
-        });
+         for (let i = 0; i < markerData.length; i++) {
+              const marker = new google.maps.Marker({
+                  position: markerData[i].position,
+                  map: map,
+                  title: 'Point ' + (i + 1),
+                  icon: {
+                      path: google.maps.SymbolPath.CIRCLE,
+                      scale: 10,
+                      fillColor: "#FF0000",
+                      fillOpacity: 1,
+                      strokeWeight: 2,
+                      strokeColor: "#FFFFFF"
+                  }
+              });
 
         // マーカーのクリック処理
         marker.addListener('click', function() {
