@@ -4,136 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スカイマップ</title>
-    <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
-    
-        <div id="map"></div>
+    <div id="map"></div>
+    <div id="photo-gallery"></div>
     <script>
-  // Initialize and add the map
-// Initialize and add the map
-let map;
-let markers = [];
-let photoGallery = document.getElementById('photo-gallery');
+        let map;
+        let markers = [];
+        let photoGallery = document.getElementById('photo-gallery');
 
-function initMap() {
-    // mapの中心を作成
-    const center = { lat: 35.80934774305429, lng: 139.0966983093226 };
+        function initMap() {
+            // 地図の中心位置を設定
+            const center = { lat: 35.80934774305429, lng: 139.0966983093226 };
 
-    // Google Mapを生成
-    const map = new google.maps.Map(document.getElementById('map'), {
-        center: center,
-        zoom: 17,
-   styles: [
-                     {
-                      "featureType": "all",
-                      "elementType": "geometry",
-                      "stylers": [
-                          { "color": "#e0efef" }
-                      ]
-                  },
-                  {
-                      "featureType": "all",
-                      "elementType": "labels.text.fill",
-                      "stylers": [
-                          { "color": "#000000" },
-                          { "lightness": 20 }
-                      ]
-                  },
-                  {
-                      "featureType": "all",
-                      "elementType": "labels.text.stroke",
-                      "stylers": [
-                          { "color": "#ffffff" },
-                          { "lightness": -30 },
-                          { "weight": 2 }
-                      ]
-                  },
-                  {
-                      "featureType": "landscape",
-                      "elementType": "geometry",
-                      "stylers": [
-                          { "color": "#e0efef" },
-                          { "lightness": 20 }
-                      ]
-                  },
-                  {
-                      "featureType": "poi",
-                      "elementType": "geometry",
-                      "stylers": [
-                          { "color": "#c5e3bf" },
-                          { "lightness": 21 }
-                      ]
-                  },
-                  {
-                      "featureType": "poi.park",
-                      "elementType": "geometry",
-                      "stylers": [
-                          { "color": "#bde6ab" },
-                          { "lightness": 20 }
-                      ]
-                  },
-                  {
-                      "featureType": "road",
-                      "elementType": "geometry",
-                      "stylers": [
-                          { "color": "#ffffff" },
-                          { "lightness": 20 }
-                      ]
-                  },
-                  {
-                      "featureType": "road.highway",
-                      "elementType": "geometry",
-                      "stylers": [
-                          { "color": "#f8c967" }
-                      ]
-                  },
-                  {
-                      "featureType": "water",
-                      "elementType": "geometry",
-                      "stylers": [
-                          { "color": "#a4d3e3" }
-                      ]
-                  }
-              ]
-    });
-    // マーカーの座標を設定
-    const markerData = [
-              { 
-                  position: { lat: 35.80844286025746, lng: 139.0978784811905 }, 
-                  page: 'https://wasabishokudo.com/#google_vignette', 
-                  icon: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png' 
-              },
-              { 
-                  position: { lat: 35.80891270453501, lng: 139.09631207125673 }, 
-                  page: 'http://verterebrew.com/', 
-                  icon: 'https://maps.google.com/mapfiles/kml/shapes/info-i_maps.png' 
-              },
-              { 
-                  position: { lat: 35.81011340506005, lng: 139.09504606870757 }, 
-                  page: 'http://www.okutama-kankousou.jp/', 
-                  icon: 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png' 
-              }
-          ];
+            // Google Mapを生成
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: center,
+                zoom: 17,
+                styles: [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            { "color": "#e0efef" }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            { "color": "#000000" },
+                            { "lightness": 20 }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            { "color": "#ffffff" },
+                            { "lightness": -30 },
+                            { "weight": 2 }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry",
+                        "stylers": [
+                            { "color": "#e0efef" },
+                            { "lightness": 20 }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            { "color": "#c5e3bf" },
+                            { "lightness": 21 }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "geometry",
+                        "stylers": [
+                            { "color": "#bde6ab" },
+                            { "lightness": 20 }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry",
+                        "stylers": [
+                            { "color": "#ffffff" },
+                            { "lightness": 20 }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry",
+                        "stylers": [
+                            { "color": "#f8c967" }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [
+                            { "color": "#a4d3e3" }
+                        ]
+                    }
+                ]
+            });
 
-    // マーカーを設置
-         for (let i = 0; i < markerData.length; i++) {
-              const marker = new google.maps.Marker({
-                  position: markerData[i].position,
-                  map: map,
-                  title: 'Point ' + (i + 1),
-                  icon: {
-                      url: markerData[i].icon, // カスタム画像のURLを指定
-                      scaledSize: new google.maps.Size(40, 40) // アイコンのサイズを指定
-                  }
-              });
-        // マーカーのクリック処理
-        marker.addListener('click', function() {
-            window.location.href = markerData[i].page;
-        });
+            // マーカーの座標と写真データを設定
+            const markerData = [
+                {
+                    position: { lat: 35.80844286025746, lng: 139.0978784811905 },
+                    page: 'https://wasabishokudo.com/#google_vignette',
+                    imageUrl: 'https://via.placeholder.com/100x100.png?text=Photo1'
+                },
+                {
+                    position: { lat: 35.80891270453501, lng: 139.09631207125673 },
+                    page: 'http://verterebrew.com/',
+                    imageUrl: 'https://via.placeholder.com/100x100.png?text=Photo2'
+                },
+                {
+                    position: { lat: 35.81011340506005, lng: 139.09504606870757 },
+                    page: 'http://www.okutama-kankousou.jp/',
+                    imageUrl: 'https://via.placeholder.com/100x100.png?text=Photo3'
+                }
+            ];
 
-         markers.push(marker);
-             const photoItem = document.createElement('div');
+            // マーカーを設置
+            for (let i = 0; i < markerData.length; i++) {
+                const marker = new google.maps.Marker({
+                    position: markerData[i].position,
+                    map: map,
+                    title: 'Point ' + (i + 1),
+                    icon: {
+                        url: `https://maps.google.com/mapfiles/ms/icons/${['red', 'green', 'blue'][i % 3]}-dot.png`,
+                        scaledSize: new google.maps.Size(50, 50)
+                    }
+                });
+
+                // マーカーのクリック処理
+                marker.addListener('click', function() {
+                    window.location.href = markerData[i].page;
+                });
+
+                markers.push(marker);
+
+                // 写真ギャラリーに追加
+                const photoItem = document.createElement('div');
                 photoItem.classList.add('photo-item');
                 photoItem.innerHTML = `<img src="${markerData[i].imageUrl}" alt="Photo ${i + 1}">`;
                 photoItem.addEventListener('click', function() {
@@ -141,27 +143,9 @@ function initMap() {
                 });
                 photoGallery.appendChild(photoItem);
             }
-    }
-        // ストリートビューが表示のON/OFFでマーカーの表示を切り替える
-        google.maps.event.addListener(map.getStreetView(), 'visible_changed', function() {
-            if (map.getStreetView().getVisible()) {
-                VisualMarker(false);
-            } else {
-                 VisualMarker(true);}
-        });
-    }
-    
-    // マーカーの表示/非表示を切り替える関数
-    function VisualMarker(visible) {
-        for (let i = 0; i < markers.length; i++) {
-            markers[i].setVisible(visible);
         }
-}
-
- </script>
-
- <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ53db693wsSU1HzyWIZcRsrfrg0Yfs74&callback=initMap">
+    </script>
+ <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ53db693wsSU1HzyWIZcRsrfrg0Yfs74&callback=initMap">
 </script>
 </body>
 </html>
