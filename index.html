@@ -98,14 +98,22 @@ function initMap() {
     });
     // マーカーの座標を設定
     const markerData = [
-        { position: { lat: 35.80844286025746, lng: 139.0978784811905 }, page: 'https://wasabishokudo.com/#google_vignette' },
-        { position: { lat: 35.80891270453501, lng: 139.09631207125673 }, page: 'http://verterebrew.com/' },
-        { position: { lat:35.81011340506005, lng:139.09504606870757  }, page: 'http://www.okutama-kankousou.jp/' },
-        //{ position: { lat: 35.628154392599505, lng: 139.28016654219047 }, page: 'sky/sky4.html' },
-        //{ position: { lat: 35.62738632756379, lng: 139.27987852955098 }, page: 'sky/sky5.html' },
-        //{ position: { lat: 35.62698124918482, lng: 139.27976526615663 }, page: 'sky/sky6.html' },
-       
-    ];
+              { 
+                  position: { lat: 35.80844286025746, lng: 139.0978784811905 }, 
+                  page: 'https://wasabishokudo.com/#google_vignette', 
+                  icon: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png' 
+              },
+              { 
+                  position: { lat: 35.80891270453501, lng: 139.09631207125673 }, 
+                  page: 'http://verterebrew.com/', 
+                  icon: 'https://maps.google.com/mapfiles/kml/shapes/info-i_maps.png' 
+              },
+              { 
+                  position: { lat: 35.81011340506005, lng: 139.09504606870757 }, 
+                  page: 'http://www.okutama-kankousou.jp/', 
+                  icon: 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png' 
+              }
+          ];
 
     // マーカーを設置
          for (let i = 0; i < markerData.length; i++) {
@@ -114,7 +122,7 @@ function initMap() {
                   map: map,
                   title: 'Point ' + (i + 1),
                   icon: {
-                    url: "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png", // カスタム画像のURLを指定
+                      url: markerData[i].icon, // カスタム画像のURLを指定
                       scaledSize: new google.maps.Size(40, 40) // アイコンのサイズを指定
                   }
               });
