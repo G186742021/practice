@@ -96,7 +96,7 @@ function initMap() {
                   }
               ]
     });
-
+    //マップ上に円表示
       circle = new google.maps.Circle({
                 strokeColor: '#00FFFF',   // 線の色
                 strokeOpacity: 0.8,       // 線の透明度
@@ -105,7 +105,7 @@ function initMap() {
                 fillOpacity: 0.20,        // 塗りつぶしの透明度
                 map: map,
                 center: center,
-                radius: 100             // 半径はメートルで指定
+                radius: 100             // 半径はメートル
             });
     
     // マーカーの座標を設定
