@@ -105,6 +105,17 @@ function initMap() {
                 center: center,
                 radius: 100             // 半径はメートル
             });
+
+      circle = new google.maps.Circle({
+                strokeColor: '#00FFFF',   // 線の色
+                strokeOpacity: 0.8,       // 線の透明度
+                strokeWeight: 2,          // 線の太さ
+                fillColor: '#87CEEB',     // 塗りつぶし色
+                fillOpacity: 0.50,        // 塗りつぶしの透明度
+                map: map,
+                center: center,
+                radius: 200             
+            });
     
     // マーカーの座標を設定
     const markerData = [
