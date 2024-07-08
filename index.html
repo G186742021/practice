@@ -192,6 +192,28 @@ function initMap() {
         for (let i = 0; i < markers.length; i++) {
             markers[i].setVisible(visible);
         }
+         function drawWalkableArea(center, minutes) {
+            const radius = minutes * 80; // 5分間の徒歩距離は約400メートルと仮定（1分間80メートル）
+
+            const options = {
+                units: 'meters'
+            };
+
+            const circle = turf.circle([center.lng, center.lat], radius, options);
+
+            const coordinates = circle.geometry.coordinates[0].map(coord => {
+                return { lat: coord[1], lng: coord[0] };
+            });
+
+            new google.maps.Polygon({
+                paths: coordinates,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.35,
+                map: map
+            });
 }
 
  </script>
