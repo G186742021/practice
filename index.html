@@ -91,9 +91,21 @@ function initMap() {
                       "stylers": [
                           { "color": "#a4d3e3" }
                       ]
-                  }
-              ]
-    });
+                  },
+                   {
+                       "featureType": "poi.business",
+                       "stylers": [
+                           {"visiblity": "off"}
+                           ]
+                   },
+                   {
+                       "featureType": "poi.government" ,
+                       "stylers": [
+                           {"visibility": "off"}
+                           ]
+                   }
+                   ]
+                });
     //マップ上に円表示
       circle = new google.maps.Circle({
                 strokeColor: '#00FFFF',   // 線の色
