@@ -150,6 +150,19 @@ function initMap() {
                 fillOpacity: 0.35,
                 map: map
             });
+ 
+    function drawWalkableArea(center, minutes) {
+            const radius = minutes * 80; // 5分間の徒歩距離は約400メートルと仮定（1分間80メートル）
+
+            const options = {
+                units: 'meters'
+            };
+
+            const circle = turf.circle([center.lng, center.lat], radius, options);
+
+            const coordinates = circle.geometry.coordinates[0].map(coord => {
+                return { lat: coord[1], lng: coord[0] };
+            });
     
     // マーカーの座標を設定
     const markerData = [
@@ -202,5 +215,6 @@ function initMap() {
  <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ53db693wsSU1HzyWIZcRsrfrg0Yfs74&callback=initMap">
 </script>
+    <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
 </body>
 </html>
