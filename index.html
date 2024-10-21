@@ -171,13 +171,7 @@ function initMap() {
                       scaledSize: new google.maps.Size(40, 40) // アイコンのサイズを指定
                   }
               });
-        // マーカーのクリック処理
-        marker.addListener('click', function() {
-            window.location.href = markerData[i].page;
-        });
-
-         markers.push(marker);
-    }
+      
         // ストリートビューが表示のON/OFFでマーカーの表示を切り替える
         google.maps.event.addListener(map.getStreetView(), 'visible_changed', function() {
             if (map.getStreetView().getVisible()) {
