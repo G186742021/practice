@@ -22,6 +22,35 @@ function initMap() {
         center: center,
         zoom: 16.5,
    styles: [
+        {
+        "featureType": "all",
+        "elementType": "labels",
+        "stylers": [
+            { "visibility": "off" }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text",
+        "stylers": [
+            { "visibility": "off" }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            { "visibility": "off" }
+        ]
+    },
+    // 以下、既存のスタイル設定をそのまま残す
+    {
+        "featureType": "all",
+        "elementType": "geometry",
+        "stylers": [
+            { "color": "#e0efef" }
+        ]
+    },
                      {
                       "featureType": "all",
                       "elementType": "geometry",
